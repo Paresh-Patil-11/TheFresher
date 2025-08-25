@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Roadmap from "./components/Roadmap";
+import DetailedRoadmap from "./components/DetailedRoadmap";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import "./index.css";
@@ -18,6 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/roadmap/:roadmapId" element={<DetailedRoadmap />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
         </Routes>

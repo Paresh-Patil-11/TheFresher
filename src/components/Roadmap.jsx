@@ -1,11 +1,36 @@
 // filepath: c:\Users\patil\OneDrive\Desktop\Paresh\fresher-guide\src\pages\Roadmap.js
 import React from "react";
+import { Link } from "react-router-dom";
 
 const roadmapCards = [
-  { title: "Web Developer", color: "blue", desc: ["HTML, CSS & JavaScript basics","Frontend frameworks (React/Vue)","Backend fundamentals (Node.js)","Git & workflows"] },
-  { title: "Android Developer", color: "green", desc: ["Java/Kotlin","Android Studio & SDK","UI with Compose","API integration"] },
-  { title: "AI/ML Engineer", color: "purple", desc: ["Python & data structures","Statistics & probability","ML libraries","Model deployment"] },
-  { title: "Embedded Developer", color: "amber", desc: ["C/C++","Microcontroller basics","Digital electronics","RTOS fundamentals"] }
+  { 
+    id: "web-developer",
+    title: "Web Developer", 
+    color: "blue", 
+    desc: ["HTML, CSS & JavaScript basics","Frontend frameworks (React/Vue)","Backend fundamentals (Node.js)","Git & workflows"],
+    paths: 3
+  },
+  { 
+    id: "android-developer",
+    title: "Android Developer", 
+    color: "green", 
+    desc: ["Java/Kotlin","Android Studio & SDK","UI with Compose","API integration"],
+    paths: 3
+  },
+  { 
+    id: "aiml-engineer",
+    title: "AI/ML Engineer", 
+    color: "purple", 
+    desc: ["Python & data structures","Statistics & probability","ML libraries","Model deployment"],
+    paths: 3
+  },
+  { 
+    id: "embedded-developer",
+    title: "Embedded Developer", 
+    color: "amber", 
+    desc: ["C/C++","Microcontroller basics","Digital electronics","RTOS fundamentals"],
+    paths: 3
+  }
 ];
 
 export default function Roadmap() {
@@ -31,9 +56,17 @@ export default function Roadmap() {
                   </li>
                 ))}
               </ul>
-              <button className={`w-full mt-6 py-2 text-white rounded-lg transition-colors font-medium bg-${r.color}-500 hover:bg-${r.color}-600`}>
-                View Complete Roadmap
-              </button>
+              <div className="mt-6 space-y-2">
+                <div className="text-xs text-gray-500 text-center">
+                  {r.paths} specialization paths available
+                </div>
+                <Link 
+                  to={`/roadmap/${r.id}`}
+                  className={`block w-full py-2 text-white rounded-lg transition-colors font-medium text-center bg-${r.color}-500 hover:bg-${r.color}-600`}
+                >
+                  View Detailed Roadmap
+                </Link>
+              </div>
             </div>
           ))}
         </div>
